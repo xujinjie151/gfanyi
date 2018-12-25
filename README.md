@@ -1,7 +1,7 @@
 # gfanyi
 翻译库，这份代码来自网络，无版权，自己使用
 
-# 普通使用方法
+# 普通使用方法,tl 是目标语言
 ```python
 res = trans("你好", tl='zh-CN')
 print(res)
