@@ -1,6 +1,12 @@
 # gfanyi
 翻译库，这份代码来自网络，无版权，自己使用
 
+# 安装
+pip install gfanyi -i https://pypi.python.org/simple/
+
+# 导入方法
+from gfanyi import trans
+
 # 普通使用方法,tl 是目标语言
 ```python
 res = trans("你好", tl='zh-CN')
