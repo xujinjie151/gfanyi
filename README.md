@@ -2,10 +2,13 @@
 翻译库，这份代码来自网络，无版权，自己使用
 
 # 普通使用方法
+```python
 res = trans("你好", tl='zh-CN')
 print(res)
+```
 
 # 关于代理使用，可以使用下面的代理，无忧代理，其他的类似
+```python
 def get_proxy():
     proxy_str = requests.get(
         "http://api.ip.data5u.com/dynamic/get.html?order=53b3de376027aa3f699dc335d2bc0674&sep=3").text.strip()
@@ -15,6 +18,7 @@ def get_proxy():
 
 res = trans("你好", tl='zh-CN',get_proxies_fun=get_proxy)
 print(res)
+```
 
 # 语言代码查询，使用 ctrl+F 找吧。有点多
 """
