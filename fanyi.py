@@ -2,7 +2,7 @@ import requests
 import re
 import execjs
 import json
-import logging
+# import logging
 import html
 import time
 
@@ -40,7 +40,7 @@ def get_TKK(get_proxies_fun=None):
     :return: TKK
     '''
     url = "https://translate.google.cn"
-    logging.warning("start getting tkk...")
+    # logging.warning("start getting tkk...")
 
     if get_proxies_fun:
         px = get_proxies_fun()
@@ -91,9 +91,9 @@ def trans_req(ori_text, sl="auto", tl="en", get_proxies_fun=None):
             else:
                 res = requests.post(url_trans, data=payload)
         except Exception as e:
-            logging.warning(e)
-            logging.warning("error, waiting and try again...")
-            # logging.warning("text: %s " % ori_text)
+            # logging.warning(e)
+            # logging.warning("error, waiting and try again...")
+            # # logging.warning("text: %s " % ori_text)
             time.sleep(1)
             continue
 
@@ -104,7 +104,7 @@ def trans_req(ori_text, sl="auto", tl="en", get_proxies_fun=None):
     try:
         js = json.loads(res.text)
     except Exception as e:
-        logging.warning(e)
+        # logging.warning(e)
         return []
 
     return js
@@ -117,7 +117,7 @@ def get_language_type(ori_text, get_proxies_fun=None):
     :return:
     '''
     info = ori_text[:30] if len(ori_text) > 30 else ori_text
-    logging.warning("start identifying: {}...".format(info))
+    # logging.warning("start identifying: {}...".format(info))
     js = trans_req(ori_text, get_proxies_fun)
     return js[2]
 
@@ -131,7 +131,7 @@ def trans(ori_text, sl="auto", tl="en", get_proxies_fun=None):
     :return:
     """
     info = ori_text[:30] if len(ori_text) > 30 else ori_text
-    logging.warning("start translating: {}...".format(info))
+    # logging.warning("start translating: {}...".format(info))
 
     js = trans_req(ori_text, sl, tl, get_proxies_fun)
     trans_text = ""
